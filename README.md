@@ -46,36 +46,85 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+# step1:
+1.Create a new project in QuartusII software.
+# step2:
+2.Name the project as uc for upcounter and dc for down counter.
+# step3:
+3.Create a new verilog hdl file in the project file.
+#  step4:
+4.Name the module as dc and uc for down counter and up counter.
+#  step5:
+5.Within the module declare input and output variables.
+# step6:
+6.Create a loop using if-else with condition parameter as reset value.
+# step7:
+7.End the loop.
+# step8:
+8.End the module.
 
 
 
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
 
+Developed by: S Shanmathi
 
+RegisterNumber:  212222100049
+```
+# DOWN COUNTER:
+```
+module counters(clk,A);
+input clk;
+output reg [0:3]A;
+always@(posedge clk)
+begin
+	A[0]=(((~A[2])&(~A[3])&(~A[1]))^A[0]);
+	A[1]=(((~A[2])&(~A[3]))^A[1]);
+	A[2]=(~A[3])^A[2];
+	A[3]=1^A[3];
+end
+endmodule
+```
+# UP COUNTER:
+```
+module counters(clk,A);
+input clk;
+output reg [0:3]A;
+always @(posedge clk)
+begin
+	A[0]=(((A[2])&(A[3])&(A[1]))^A[0]);
+	A[1]=(((A[2])&(A[3]))^A[1]);
+	A[2]=(A[3])^A[2];
+	A[3]=1^A[3];
+end
+endmodule
 
-
-
+```
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+# DOWN COUNTER:
+
+![242487237-c6938290-59bd-4ccd-88ba-95aa8854df29](https://github.com/Jeevithaelumalai/Exp-7-Synchornous-counters-/assets/118708245/3e548083-8a69-43df-acf9-e24fe9f6905c)
 
 
-
-
-
+# UP COUNTER:
+![242490286-a7453958-564c-4ef5-940c-347e19ddc645](https://github.com/Jeevithaelumalai/Exp-7-Synchornous-counters-/assets/118708245/86115917-4ce2-4733-894e-18d00ddff8b8)
 
 
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+# UP COUNTER:
+
+![Uploading image.png…]()
 
 
 
+
+# DOWN COUNTER
+![244275891-a20707c6-c5ef-44e3-a1d6-e03f062363d7](https://github.com/Jeevithaelumalai/Exp-7-Synchornous-counters-/assets/118708245/8ee8953d-d3a0-4aaa-932c-9571f6d5b487)
 
 
 ### TRUTH TABLE 
